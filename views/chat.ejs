@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <% yazilar.forEach(yazilar => { %>
+            <tr>
+                <td><%= yazilar.name%>:</td>
+                <td><%= yazilar.deger %></td>
+              </tr>
+        <% }) %>
+      </table>
+      
+      <form action="http://localhost:3000/chat" method="get">
+        <input type="text" id="myInput2" name="ad">
+        <input type="text" id="myInput" name="deger" onkeydown="handleKeyDown(event)">
+        <input type="submit">
+      
+      </form>
+        
+        <button onclick="haha();">Deneme</button>
+      
+</body>
+<script>
+  if(window.location.href!="http://localhost:3000/chat")
+  window.location.href="http://localhost:3000/chat";
+
+  
+
+  function handleKeyDown(event) {
+    if (event.key === 'Enter') {
+      document.getElementById('myInput').parentNode.submit(); // Formu gönderir
+    }
+  }
+</script>
+</html>
