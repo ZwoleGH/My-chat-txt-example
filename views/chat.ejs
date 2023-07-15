@@ -15,7 +15,7 @@
         <% }) %>
       </table>
       
-      <form action="http://localhost:3000/chat" method="get">
+      <form action="/chat" method="get">
         <input type="text" id="myInput2" name="ad">
         <input type="text" id="myInput" name="deger" onkeydown="handleKeyDown(event)">
         <input type="submit">
@@ -25,15 +25,14 @@
         <button onclick="haha();">Deneme</button>
       
 </body>
-<script>
-  if(window.location.href!="http://localhost:3000/chat")
-  window.location.href="http://localhost:3000/chat";
 
-  
+<script>
+  if(window.location.href!="https://<%= dirname %>/chat")
+  window.location.href="/chat";
 
   function handleKeyDown(event) {
     if (event.key === 'Enter') {
-      document.getElementById('myInput').parentNode.submit(); // Formu gönderir
+      document.getElementById('myInput').parentNode.submit(); 
     }
   }
 </script>

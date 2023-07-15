@@ -7,7 +7,7 @@ app.set("view engine","ejs");
 
 app.use(userRoutes);
 
-
-app.listen(3000,()=>{
-    console.log("listening port 3000");
+const PORT=8000;
+app.listen(PORT,()=>{
+    console.log("listening port "+PORT);
 })

@@ -9,14 +9,17 @@ const router=express.Router();
 const url=require("url");
 
 const db=require("../data/db");
+const { dir } = require("console");
 
 router.use("/chat",async function(req,res){
+  
     try {
     var data=fs.readFileSync("./message.json");
     var myObject = JSON.parse(data);
     if(req.query.deger!=null){
       myObject.push(JSON.parse('{"name":"'+req.query.ad+'","deger":"'+req.query.deger+'"}'));
       var newData2 = JSON.stringify(myObject);
+      
       fs.writeFile("./message.json",newData2,(err)=>{
   console.log(err);
     });
@@ -24,6 +27,8 @@ router.use("/chat",async function(req,res){
     }
         res.render("chat",{
           yazilar:myObject,
+          dirname:req.hostname,
+          db:db,
           modul:module.exports
         });
       } 

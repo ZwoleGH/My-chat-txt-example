@@ -1,4 +1,2 @@
-var haha=function(){
-    console.log("Deneme");
-}
-module.exports.haha=haha;
+var a="deneme";
+module.exports.a=a;
