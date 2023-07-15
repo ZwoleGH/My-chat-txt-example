@@ -11,17 +11,23 @@
     <table>
         <% yazilar.forEach(yazilar => { %>
             <tr>
+                <td><%= yazilar.id%>:</td>
                 <td><%= yazilar.name%>:</td>
                 <td><%= yazilar.deger %></td>
+                <td>
+                
+                    <a href='/text/<%=yazilar.id%>'>Duzenle</a>
+                
+            </td>
               </tr>
         <% }) %>
       </table>
       
-      <form action="/chat" method="post">
+      <form action="/adminchat" method="post">
+        <input type="text" id="myInput3" name="id">
         <input type="text" id="myInput2" name="ad">
         <input type="text" id="myInput" name="deger" onkeydown="handleKeyDown(event)">
         <input type="submit">
-      
       </form>
         
         

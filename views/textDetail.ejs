@@ -8,23 +8,7 @@
 </head>
 <body>
   <%- include('partials/nav.ejs') %>
-    <table>
-        <% yazilar.forEach(yazilar => { %>
-            <tr>
-                <td><%= yazilar.name%>:</td>
-                <td><%= yazilar.deger %></td>
-              </tr>
-        <% }) %>
-      </table>
-      
-      <form action="/chat" method="post">
-        <input type="text" id="myInput2" name="ad">
-        <input type="text" id="myInput" name="deger" onkeydown="handleKeyDown(event)">
-        <input type="submit">
-      
-      </form>
-        
-        
+<%= yazi %>
         
         
 </body>
