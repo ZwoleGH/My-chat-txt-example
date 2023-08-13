@@ -46,6 +46,7 @@ router.get("/logout",accountController.logout);
 router.get("/ProfileInfo",accountController.profileInfo)
 
 router.get("/profil/:email",accountController.profil);
+router.get("/profil",accountController.profil);
 router.get("/googleRegister",accountController.getgoogleregister);
 router.get('/auth/google', 
   passport.authenticate('google', { scope : ['profile', 'email'] }));
