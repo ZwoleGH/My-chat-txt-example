@@ -97,7 +97,7 @@ exports.logout=async function(req,res){
 exports.profil=async function(req,res){
   User.findOne({email:req.params.email}).then(user=>{
     if(user){
-      res.render("Profil",{
+      res.render("profil",{
         dirname:req.hostname,
         isLogined:req.session.isLogined,
         activeUser:req.session.activeUser,
@@ -116,7 +116,7 @@ exports.profileInfo=async function(req,res){
   console.log("Profilinfo");
     console.log(req.user)
 
-    res.render("Profilinfo",{
+    res.render("profilinfo",{
           dirname:req.hostname,
           isLogined:req.session.isLogined,
           activeUser:req.session.activeUser,
