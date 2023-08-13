@@ -8,7 +8,9 @@
 </head>
 <body>
   <%- include('partials/nav.ejs') %>
-
+        <% if (activeUser) { %>
+         Hoşgeldin <%= activeUser.name %>.
+        <% } %>
         
         
 </body>

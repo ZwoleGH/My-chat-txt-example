@@ -10,30 +10,32 @@ const url=require("url");
 
 const router=express.Router();
 
-const db=require("../data/db");
+const isLogined=require("../middlewares/isLogined");
 
 const nodeChatController=require("../controllers/nodeChat");
 const delMsgController=require("../controllers/deleteMsg");
+const editMsgController=require("../controllers/editMsg");
+const getMsgController=require("../controllers/getMsg");
+const sendMsgController=require("../controllers/sendMsg");
+
 
 router.use(bodyParser.urlencoded({extended: false}));
 
-router.post("/chat",nodeChatController.sendText);
+router.post("/chat",isLogined,sendMsgController.sendText);
 
-router.get("/chat",nodeChatController.getText);
+router.get("/chat",isLogined,getMsgController.getText);
 
-router.post("/adminchat",nodeChatController.adminsendText);
+router.post("/adminchat",isLogined,sendMsgController.adminsendText);
 
-router.get("/delMsg",delMsgController.delMsg);
+router.get("/delMsg/:id",delMsgController.delMsg);
 
-router.get("/adminchat",nodeChatController.admingetText);
+router.post("/editMsg",isLogined,editMsgController.editMsg);
 
-router.get("/text/:id",nodeChatController.textDetails);
+router.get("/adminchat",isLogined,getMsgController.admingetText);
+
+router.get("/text/:id",isLogined,nodeChatController.textDetails);
 
 router.get("/",nodeChatController.home)
-
-
-
-
 
 module.exports=router;
 

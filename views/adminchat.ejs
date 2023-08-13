@@ -8,15 +8,18 @@
 </head>
 <body>
   <%- include('partials/nav.ejs') %>
-    <table>
+  <% if (isLogined) { %>
+   <% if (activeUser.roles[0].admin) { %>
+   <table>
         <% yazilar.forEach(yazilar => { %>
             <tr>
-                <td><%= yazilar.id%>:</td>
-                <td><%= yazilar.name%>:</td>
-                <td><%= yazilar.deger %></td>
+                <td>id:<%= yazilar._id%>:</td>
+                <td>name:<%= yazilar.name%>:</td>
+                <td>text:<%= yazilar.text %></td>
                 <td>
                 
                     <a href='/text/<%=yazilar.id%>'>Duzenle</a>
+                    <a href='/delMsg/<%=yazilar.id%>'>Sil</a>
                 
             </td>
               </tr>
@@ -24,11 +27,16 @@
       </table>
       
       <form action="/adminchat" method="post">
-        <input type="text" id="myInput3" name="id">
-        <input type="text" id="myInput2" name="ad">
-        <input type="text" id="myInput" name="deger" onkeydown="handleKeyDown(event)">
+        <input type="text" id="myInput2" name="ad" required>
+        <input type="text" id="myInput" name="deger" onkeydown="handleKeyDown(event)" required>
         <input type="submit">
       </form>
+    <% } else { %>
+      Admin yetkiniz bulunmamakta.
+    <% } %>
+  <% } %>
+  
+    
         
         
         

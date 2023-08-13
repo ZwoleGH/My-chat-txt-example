@@ -8,8 +8,20 @@
 </head>
 <body>
   <%- include('partials/nav.ejs') %>
-<%= yazi %>
-        
+  <% yazilar.forEach(yazilar => { %>
+    <tr>
+        <td><%= yazilar.name%>:</td>
+        <td><%= yazilar.text %></td>
+      </tr>
+      <form action="/editMsg" method="post">
+  <input type="hidden" id="id" name="id" value="<%=yazilar.id%>">
+  <input type="text" id="myInput2" name="name" value="<%=yazilar.name%>">
+  <input type="text" id="myInput" name="text" value="<%=yazilar.text%>" onkeydown="handleKeyDown(event)">
+  <input type="submit">
+
+</form>
+<% }) %>
+
         
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

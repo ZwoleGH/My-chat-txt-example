@@ -11,19 +11,18 @@
     <table>
         <% yazilar.forEach(yazilar => { %>
             <tr>
-                <td><%= yazilar.name%>:</td>
-                <td><%= yazilar.deger %></td>
+                <td><a href="/profil/<%= yazilar.mail %>"><%= yazilar.name%>:</a></td>
+                <td><%= yazilar.text %></td>
               </tr>
         <% }) %>
       </table>
       
+      <% if (isLogined) { %>
       <form action="/chat" method="post">
-        <input type="text" id="myInput2" name="ad">
-        <input type="text" id="myInput" name="deger" onkeydown="handleKeyDown(event)">
+        <input type="text" id="myInput" name="deger" onkeydown="handleKeyDown(event)" required>
         <input type="submit">
-      
       </form>
-        
+      <% }%>
         
         
         
