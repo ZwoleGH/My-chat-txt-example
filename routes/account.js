@@ -21,7 +21,7 @@ const GOOGLE_CLIENT_SECRET = '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';
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://gray-unusual-bighorn-sheep.cyclic.app/auth/google/callback"
+    callbackURL: "https://puce-kind-betta.cyclic.app/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
       userProfile=profile;
